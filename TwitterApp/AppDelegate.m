@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "TweetsViewController.h"
 #import "TwitterClient.h"
 #import "User.h"
 
@@ -21,16 +22,23 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = [[LoginViewController alloc] init];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogOut) name:UserDidLogoutNotification object:nil];
     
     User *user = [User currentUser];
     if(user == nil) {
         NSLog(@"Not Logged in");
+        self.window.rootViewController = [[LoginViewController alloc] init];
     } else {
         NSLog(@"Logged in as %@", user.name);
+            self.window.rootViewController = [[TweetsViewController alloc] init];
     }
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void) userDidLogOut {
+    self.window.rootViewController = [[LoginViewController alloc] init];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
