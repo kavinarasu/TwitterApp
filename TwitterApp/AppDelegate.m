@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "TwitterClient.h"
-#import "Tweet.h"
+#import "User.h"
 
 @interface AppDelegate ()
 
@@ -22,6 +22,13 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = [[LoginViewController alloc] init];
+    
+    User *user = [User currentUser];
+    if(user == nil) {
+        NSLog(@"Not Logged in");
+    } else {
+        NSLog(@"Logged in as %@", user.name);
+    }
     [self.window makeKeyAndVisible];
     return YES;
 }

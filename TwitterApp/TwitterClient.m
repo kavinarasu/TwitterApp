@@ -53,6 +53,7 @@ NSString *const kTwitterBaseUrl = @"https://api.twitter.com";
         [[TwitterClient sharedInstance].requestSerializer saveAccessToken:accessToken];
         [[TwitterClient sharedInstance] GET:@"1.1/account/verify_credentials.json" parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
             User *user = [[User alloc] initWithDictionary:responseObject];
+            [User setCurrentUser:user];
             self.loginCompletion(user, nil);
         } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
             NSLog(@"Failed to get home timeline");
