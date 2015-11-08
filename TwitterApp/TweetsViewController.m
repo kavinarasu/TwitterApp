@@ -8,6 +8,8 @@
 
 #import "TweetsViewController.h"
 #import "User.h"
+#import "Tweet.h"
+#import "TwitterClient.h"
 
 @interface TweetsViewController ()
 
@@ -15,12 +17,20 @@
 
 @implementation TweetsViewController
 
-- (IBAction)onLogOut:(id)sender {
+- (void) onLogOut {
     [User logout];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"Tweets";
+    UIBarButtonItem *leftBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Log out" style:UIBarButtonItemStylePlain target:self action:@selector(onLogOut)];
+    self.navigationItem.leftBarButtonItem = leftBarItem;
+    [[TwitterClient sharedInstance] homeTimeLineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
+        for(Tweet *tweet in tweets) {
+            NSLog(@"%@", tweet.text);
+        }
+    }];
     // Do any additional setup after loading the view from its nib.
 }
 

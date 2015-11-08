@@ -31,7 +31,10 @@
         self.window.rootViewController = [[LoginViewController alloc] init];
     } else {
         NSLog(@"Logged in as %@", user.name);
-            self.window.rootViewController = [[TweetsViewController alloc] init];
+        UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:[[TweetsViewController alloc] init]];
+        self.window.rootViewController = navigation;
+//        [ presentViewController:navigation animated:YES completion:nil];
+//            self.window.rootViewController = [[TweetsViewController alloc] init];
     }
     [self.window makeKeyAndVisible];
     return YES;
