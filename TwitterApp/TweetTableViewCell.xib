@@ -73,7 +73,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Did you know you can tell if someone is a programmer  simply by saying the word 'timezones' and seeing  if they crigne?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXW-ja-sYS">
-                        <rect key="frame" x="64" y="51" width="286.5" height="37"/>
+                        <rect key="frame" x="64" y="51" width="308" height="37"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -85,6 +85,7 @@
                     <constraint firstItem="UJl-9U-Eh9" firstAttribute="centerY" secondItem="Hzg-13-W11" secondAttribute="centerY" id="2lR-Sf-z7N"/>
                     <constraint firstItem="Hzg-13-W11" firstAttribute="leading" secondItem="Nqf-Xc-1Sg" secondAttribute="trailing" constant="5" id="35D-1N-sg1"/>
                     <constraint firstItem="UJl-9U-Eh9" firstAttribute="leading" secondItem="Hzg-13-W11" secondAttribute="trailing" constant="8" id="6WR-qu-v7v"/>
+                    <constraint firstAttribute="trailing" secondItem="oXW-ja-sYS" secondAttribute="trailing" constant="5" id="8Rh-3L-F0J"/>
                     <constraint firstItem="Nqf-Xc-1Sg" firstAttribute="leading" secondItem="9eF-5V-DI1" secondAttribute="trailing" constant="8" id="BiD-TR-FhK"/>
                     <constraint firstItem="oXW-ja-sYS" firstAttribute="leading" secondItem="9eF-5V-DI1" secondAttribute="trailing" constant="8" id="Fpk-re-hhy"/>
                     <constraint firstItem="oXW-ja-sYS" firstAttribute="top" secondItem="UJl-9U-Eh9" secondAttribute="bottom" constant="8" id="J9X-ns-big"/>
