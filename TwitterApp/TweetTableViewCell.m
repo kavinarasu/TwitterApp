@@ -16,10 +16,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *tweetUserFullName;
 @property (weak, nonatomic) IBOutlet UILabel *tweetUserHandle;
 @property (weak, nonatomic) IBOutlet UILabel *tweetTime;
-@property (weak, nonatomic) IBOutlet UIImageView *replyActionImage;
-@property (weak, nonatomic) IBOutlet UIImageView *retweetImageView;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteActionButton;
 @property (weak, nonatomic) IBOutlet UILabel *tweetText;
+@property (weak, nonatomic) IBOutlet UIButton *retweetActionButton;
+@property (weak, nonatomic) IBOutlet UIButton *replyActionButton;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @end
 
@@ -28,12 +28,9 @@
 - (void)awakeFromNib {
     // Initialization code
     [self.favoriteActionButton setImage:[UIImage imageNamed:@"like-action-pressed.png"] forState:UIControlStateSelected | UIControlStateHighlighted];
-}
+    [self.retweetActionButton setImage:[UIImage imageNamed:@"retweet-action-on-pressed.png"] forState:UIControlStateSelected | UIControlStateHighlighted];
 
-- (void) onFavoriteTapped {
-    
 }
-
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
@@ -53,7 +50,7 @@
         [self.favoriteActionButton setImage: [UIImage imageNamed:@"like-action-on.png"] forState:UIControlStateNormal];
     }
     if(self.tweet.retweeted) {
-        [self.retweetImageView setImage: [UIImage imageNamed:@"retweet-action-on.png"]];
+        [self.retweetActionButton setImage: [UIImage imageNamed:@"retweet-action-on.png"] forState:UIControlStateNormal];
     }
     NSTimeInterval interval = [self.tweet.createdAt timeIntervalSinceNow];
     int roundedValue = abs((int)round(interval));
