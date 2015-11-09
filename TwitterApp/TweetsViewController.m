@@ -12,7 +12,7 @@
 #import "TwitterClient.h"
 #import "TweetTableViewCell.h"
 
-@interface TweetsViewController () <UITableViewDataSource>
+@interface TweetsViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tweetsTableView;
 @property (nonatomic, strong) NSArray *tweets;
 
@@ -30,6 +30,9 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 - (void) onLogOut {
     [User logout];
@@ -38,6 +41,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tweetsTableView.dataSource = self;
+    self.tweetsTableView.delegate = self;
     [self.tweetsTableView registerNib:[UINib nibWithNibName:@"TweetTableViewCell" bundle:nil] forCellReuseIdentifier:@"tweetCell"];
     self.tweetsTableView.rowHeight = UITableViewAutomaticDimension;
     self.tweetsTableView.estimatedRowHeight = 120;
