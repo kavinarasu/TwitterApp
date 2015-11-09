@@ -65,19 +65,20 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like-action.png" translatesAutoresizingMaskIntoConstraints="NO" id="RqE-SA-CYh">
-                        <rect key="frame" x="168" y="96" width="16" height="16"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="16" id="qv5-YC-IBy"/>
-                            <constraint firstAttribute="height" constant="16" id="sTC-OZ-cOO"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Did you know you can tell if someone is a programmer  simply by saying the word 'timezones' and seeing  if they crigne?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXW-ja-sYS">
                         <rect key="frame" x="64" y="51" width="308" height="37"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rqH-TG-nSs">
+                        <rect key="frame" x="168" y="96" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="16" id="V8S-f2-cvU"/>
+                            <constraint firstAttribute="height" constant="16" id="jRW-Aa-yD3"/>
+                        </constraints>
+                        <state key="normal" title="Button" backgroundImage="like-action.png"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Hzg-13-W11" firstAttribute="centerY" secondItem="Nqf-Xc-1Sg" secondAttribute="centerY" id="2Q3-eR-vDa"/>
@@ -88,14 +89,12 @@
                     <constraint firstAttribute="trailing" secondItem="oXW-ja-sYS" secondAttribute="trailing" constant="5" id="8Rh-3L-F0J"/>
                     <constraint firstItem="Nqf-Xc-1Sg" firstAttribute="leading" secondItem="9eF-5V-DI1" secondAttribute="trailing" constant="8" id="BiD-TR-FhK"/>
                     <constraint firstItem="oXW-ja-sYS" firstAttribute="leading" secondItem="9eF-5V-DI1" secondAttribute="trailing" constant="8" id="Fpk-re-hhy"/>
+                    <constraint firstItem="rqH-TG-nSs" firstAttribute="centerY" secondItem="SDC-3h-RRt" secondAttribute="centerY" id="GEf-j2-KFX"/>
                     <constraint firstItem="oXW-ja-sYS" firstAttribute="top" secondItem="UJl-9U-Eh9" secondAttribute="bottom" constant="8" id="J9X-ns-big"/>
                     <constraint firstItem="SDC-3h-RRt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="64" id="JYc-Eg-fae"/>
-                    <constraint firstItem="RqE-SA-CYh" firstAttribute="leading" secondItem="vT4-PC-4rw" secondAttribute="trailing" constant="36" id="Ko0-5y-WQU"/>
                     <constraint firstItem="MCb-22-Lj6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="Ldo-4Z-xc7"/>
                     <constraint firstItem="vT4-PC-4rw" firstAttribute="leading" secondItem="SDC-3h-RRt" secondAttribute="trailing" constant="36" id="Nuf-5i-tqs"/>
-                    <constraint firstItem="RqE-SA-CYh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="oXW-ja-sYS" secondAttribute="bottom" constant="8" id="OGv-cZ-o6Q"/>
                     <constraint firstItem="vT4-PC-4rw" firstAttribute="centerY" secondItem="SDC-3h-RRt" secondAttribute="centerY" id="QEb-e0-JPO"/>
-                    <constraint firstItem="RqE-SA-CYh" firstAttribute="centerY" secondItem="SDC-3h-RRt" secondAttribute="centerY" id="TNs-qh-pg1"/>
                     <constraint firstItem="U2k-4S-w7h" firstAttribute="leading" secondItem="MCb-22-Lj6" secondAttribute="trailing" constant="8" id="TrV-Xv-gdj"/>
                     <constraint firstAttribute="bottom" secondItem="SDC-3h-RRt" secondAttribute="bottom" constant="8" id="VL0-os-Bdf"/>
                     <constraint firstAttribute="trailing" secondItem="UJl-9U-Eh9" secondAttribute="trailing" constant="8" id="WE5-oT-PxG"/>
@@ -103,10 +102,12 @@
                     <constraint firstItem="U2k-4S-w7h" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="fdL-5e-q5B"/>
                     <constraint firstItem="9eF-5V-DI1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="jyb-pd-Gin"/>
                     <constraint firstItem="Nqf-Xc-1Sg" firstAttribute="top" secondItem="U2k-4S-w7h" secondAttribute="bottom" constant="8" id="riH-Dm-Gfp"/>
+                    <constraint firstItem="rqH-TG-nSs" firstAttribute="leading" secondItem="vT4-PC-4rw" secondAttribute="trailing" constant="36" id="v72-gl-WAN"/>
+                    <constraint firstItem="rqH-TG-nSs" firstAttribute="top" secondItem="oXW-ja-sYS" secondAttribute="bottom" constant="8" id="zjj-Df-OM1"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="favoriteActionImage" destination="RqE-SA-CYh" id="hbl-WC-g6K"/>
+                <outlet property="favoriteActionButton" destination="rqH-TG-nSs" id="y7x-2k-h60"/>
                 <outlet property="profileImage" destination="9eF-5V-DI1" id="Zzs-Zu-0h3"/>
                 <outlet property="replyActionImage" destination="SDC-3h-RRt" id="Ucg-7x-SOR"/>
                 <outlet property="retweetImage" destination="MCb-22-Lj6" id="40t-Hf-i37"/>
