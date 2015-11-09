@@ -76,7 +76,7 @@
                         </constraints>
                         <state key="normal" title="Button" image="reply-action_0.png"/>
                         <connections>
-                            <action selector="onTappingReply:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="cTJ-Fz-iof"/>
+                            <action selector="onTappingReply:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="eFD-LD-Weq"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ug0-ha-kNx">

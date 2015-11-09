@@ -24,4 +24,9 @@
 
 @property (nonatomic, weak) id<NewTweetViewControllerDelegate> delegate;
 
+@property (nonatomic, strong) User *replyToUser;
+
+@property (nonatomic, strong) NSNumber *replyToId;
+
+
 @end

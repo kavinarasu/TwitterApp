@@ -9,6 +9,7 @@
 #import "NewTweetViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "TwitterClient.h"
+#import "User.h"
 
 @interface NewTweetViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
@@ -20,6 +21,13 @@
 
 @implementation NewTweetViewController
 
+- (id) initWithReply:(NSNumber *) tweetId toUser:(User *) user {
+    self = [super init];
+    self.replyToId = tweetId;
+    self.replyToUser = user;
+    return self;
+}
+
 - (void) onCancel {
     [self closeModal];
 }
@@ -28,6 +36,9 @@
     NSString *status = self.tweetTextView.text;
     NSDictionary *params = [[NSMutableDictionary alloc] init];
     [params setValue:status forKey:@"status"];
+    if(self.replyToId) {
+        [params setValue:self.replyToId forKey:@"in_reply_to_status_id"];
+    }
     [[TwitterClient sharedInstance] tweetStatus:params completion:^(Tweet *tweet, NSError *error) {
         if(error == nil) {
             NSLog(@"Successfully tweeted %@", tweet.text);
@@ -54,6 +65,9 @@
     self.navigationItem.leftBarButtonItem = leftBarItem;
     UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Tweet" style:UIBarButtonItemStylePlain target:self action:@selector(onTweet)];
     self.navigationItem.rightBarButtonItem = rightBarItem;
+    if(self.replyToUser) {
+        self.tweetTextView.text = [NSString stringWithFormat:@"\@%@", self.replyToUser.screenName];
+    }
     // Do any additional setup after loading the view from its nib.
 }
 

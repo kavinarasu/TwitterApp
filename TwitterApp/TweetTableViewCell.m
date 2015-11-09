@@ -9,6 +9,7 @@
 #import "TweetTableViewCell.h"
 #import "UIImageView+AFNetworking.h"
 #import "TwitterClient.h"
+#import "NewTweetViewController.h"
 
 @interface TweetTableViewCell ()
 
@@ -60,10 +61,14 @@
 }
 
 - (IBAction)onTappingRetweet:(id)sender {
+    
 }
 
 - (IBAction)onTappingReply:(id)sender {
+    [self.delegate tweetTableViewCell:self replyDidGetTappedFor:self.tweet];
 }
+
+
 
 - (void) setTweet:(Tweet *)tweet {
     _tweet = tweet;

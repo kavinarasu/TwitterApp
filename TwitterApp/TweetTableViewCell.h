@@ -9,6 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "Tweet.h"
 
+@class TweetTableViewCell;
+
+@protocol TweetTableViewCellDelegate <NSObject>
+
+- (void) tweetTableViewCell:(TweetTableViewCell *) tweetTableViewCell replyDidGetTappedFor:(Tweet *) tweet;
+
+@end
+
 @interface TweetTableViewCell : UITableViewCell
 @property (nonatomic, strong) Tweet *tweet;
+@property (nonatomic, weak) id<TweetTableViewCellDelegate> delegate;
 @end

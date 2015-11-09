@@ -14,7 +14,7 @@
 #import "TweetDetailViewController.h"
 #import "NewTweetViewController.h"
 
-@interface TweetsViewController () <UITableViewDataSource, UITableViewDelegate, NewTweetViewControllerDelegate>
+@interface TweetsViewController () <UITableViewDataSource, UITableViewDelegate, NewTweetViewControllerDelegate, TweetTableViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tweetsTableView;
 @property (nonatomic, strong) NSMutableArray *tweets;
 
@@ -28,6 +28,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TweetTableViewCell *cell = [self.tweetsTableView dequeueReusableCellWithIdentifier:@"tweetCell"];
+    cell.delegate = self;
     cell.tweet = self.tweets[indexPath.row];
     return cell;
 }
@@ -43,6 +44,16 @@
 - (void) newTweetViewController:(NewTweetViewController *)newTweetViewController didCreateTweet:(Tweet *)tweet {
     [self.tweets insertObject:tweet atIndex:0];
     [self.tweetsTableView reloadData];
+}
+
+- (void) tweetTableViewCell:(TweetTableViewCell *)tweetTableViewCell replyDidGetTappedFor:(Tweet *)tweet {
+    NewTweetViewController *viewController = [[NewTweetViewController alloc] init];
+    viewController.delegate = self;
+    viewController.replyToId = tweet.tweetId;
+    viewController.replyToUser = tweet.author;
+    [viewController setUser:[User currentUser]];
+    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:viewController];
+    [self presentViewController:navigation animated:YES completion:nil];
 }
 
 - (void) onLogOut {
