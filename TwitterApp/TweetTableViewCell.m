@@ -50,6 +50,22 @@
     if(self.tweet.retweeted) {
         [self.retweetImageView setImage: [UIImage imageNamed:@"retweet-action-on.png"]];
     }
+    NSTimeInterval interval = [self.tweet.createdAt timeIntervalSinceNow];
+    int roundedValue = abs((int)round(interval));
+    NSLog(@"%d", roundedValue);
+    NSString *dateValue;
+    if(roundedValue < 60) {
+        dateValue = [NSString stringWithFormat:@"%ds", roundedValue];
+    } else if(roundedValue < 3600) {
+        dateValue = [NSString stringWithFormat:@"%dm", roundedValue/60];
+    } else if(roundedValue < 86400) {
+        dateValue = [NSString stringWithFormat:@"%dh", roundedValue/1440];
+    } else {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"MM/d/YY";
+        dateValue = [formatter stringFromDate:self.tweet.createdAt];
+    }
+    self.tweetTime.text = dateValue;
 }
 
 @end
