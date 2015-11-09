@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
 @interface NewTweetViewController : UIViewController
+
+@property (nonatomic, strong) User *user;
 
 @end

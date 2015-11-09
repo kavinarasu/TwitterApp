@@ -7,8 +7,13 @@
 //
 
 #import "NewTweetViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface NewTweetViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *userScreenNameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *userProfileImageView;
+@property (weak, nonatomic) IBOutlet UITextView *tweetTextView;
 
 @end
 
@@ -24,6 +29,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.userNameLabel.text = self.user.name;
+    self.userScreenNameLabel.text = self.user.screenName;
+    NSURL *url = [NSURL URLWithString:self.user.profileImageUrl];
+    [self.userProfileImageView setImageWithURL:url];
+    [self.tweetTextView becomeFirstResponder];
     UIBarButtonItem *leftBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(onCancel)];
     self.navigationItem.leftBarButtonItem = leftBarItem;
     UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Tweet" style:UIBarButtonItemStylePlain target:self action:@selector(onTweet)];

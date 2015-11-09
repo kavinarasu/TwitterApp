@@ -46,6 +46,7 @@
 
 - (void) onCompose {
     NewTweetViewController *viewController = [[NewTweetViewController alloc] init];
+    [viewController setUser:[User currentUser]];
     UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:viewController];
     [self presentViewController:navigation animated:YES completion:nil];
 }
