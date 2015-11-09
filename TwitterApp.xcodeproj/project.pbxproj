@@ -33,6 +33,8 @@
 		8A814A181BF05382005ED55E /* retweet-action-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A814A171BF05382005ED55E /* retweet-action-on.png */; settings = {ASSET_TAGS = (); }; };
 		8A814A1C1BF061CE005ED55E /* TweetDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A814A1A1BF061CE005ED55E /* TweetDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 		8A814A1D1BF061CE005ED55E /* TweetDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A814A1B1BF061CE005ED55E /* TweetDetailViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		8A814A211BF07C5E005ED55E /* NewTweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A814A1F1BF07C5E005ED55E /* NewTweetViewController.m */; settings = {ASSET_TAGS = (); }; };
+		8A814A221BF07C5E005ED55E /* NewTweetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A814A201BF07C5E005ED55E /* NewTweetViewController.xib */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,9 @@
 		8A814A191BF061CE005ED55E /* TweetDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetDetailViewController.h; sourceTree = "<group>"; };
 		8A814A1A1BF061CE005ED55E /* TweetDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetDetailViewController.m; sourceTree = "<group>"; };
 		8A814A1B1BF061CE005ED55E /* TweetDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetDetailViewController.xib; sourceTree = "<group>"; };
+		8A814A1E1BF07C5E005ED55E /* NewTweetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTweetViewController.h; sourceTree = "<group>"; };
+		8A814A1F1BF07C5E005ED55E /* NewTweetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTweetViewController.m; sourceTree = "<group>"; };
+		8A814A201BF07C5E005ED55E /* NewTweetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewTweetViewController.xib; sourceTree = "<group>"; };
 		8F80806454B493604C384C93 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C3E2D6D8F63D491433BB0965 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +145,9 @@
 				8A814A191BF061CE005ED55E /* TweetDetailViewController.h */,
 				8A814A1A1BF061CE005ED55E /* TweetDetailViewController.m */,
 				8A814A1B1BF061CE005ED55E /* TweetDetailViewController.xib */,
+				8A814A1E1BF07C5E005ED55E /* NewTweetViewController.h */,
+				8A814A1F1BF07C5E005ED55E /* NewTweetViewController.m */,
+				8A814A201BF07C5E005ED55E /* NewTweetViewController.xib */,
 			);
 			path = TwitterApp;
 			sourceTree = "<group>";
@@ -249,6 +257,7 @@
 				8A814A081BF014F0005ED55E /* retweet-action-on-pressed.png in Resources */,
 				8A8149E21BEDE4BF005ED55E /* Assets.xcassets in Resources */,
 				8A814A091BF014F0005ED55E /* like-action.png in Resources */,
+				8A814A221BF07C5E005ED55E /* NewTweetViewController.xib in Resources */,
 				8A814A1D1BF061CE005ED55E /* TweetDetailViewController.xib in Resources */,
 				8A814A0D1BF014F0005ED55E /* reply-action-pressed_0.png in Resources */,
 				8A8149F31BEDE62B005ED55E /* LoginViewController.xib in Resources */,
@@ -323,6 +332,7 @@
 				8A8149DA1BEDE4BF005ED55E /* AppDelegate.m in Sources */,
 				8A8149D71BEDE4BF005ED55E /* main.m in Sources */,
 				8A8149FE1BEFFB64005ED55E /* TweetsViewController.m in Sources */,
+				8A814A211BF07C5E005ED55E /* NewTweetViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

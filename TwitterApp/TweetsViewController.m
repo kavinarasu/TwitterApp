@@ -12,6 +12,7 @@
 #import "TwitterClient.h"
 #import "TweetTableViewCell.h"
 #import "TweetDetailViewController.h"
+#import "NewTweetViewController.h"
 
 @interface TweetsViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tweetsTableView;
@@ -43,6 +44,12 @@
     [User logout];
 }
 
+- (void) onCompose {
+    NewTweetViewController *viewController = [[NewTweetViewController alloc] init];
+    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:viewController];
+    [self presentViewController:navigation animated:YES completion:nil];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tweetsTableView.dataSource = self;
@@ -52,7 +59,9 @@
     self.tweetsTableView.estimatedRowHeight = 120;
     self.title = @"Tweets";
     UIBarButtonItem *leftBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Log out" style:UIBarButtonItemStylePlain target:self action:@selector(onLogOut)];
+    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Compose" style:UIBarButtonItemStylePlain target:self action:@selector(onCompose)];
     self.navigationItem.leftBarButtonItem = leftBarItem;
+    self.navigationItem.rightBarButtonItem = rightBarItem;
     [[TwitterClient sharedInstance] homeTimeLineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
         self.tweets = tweets;
         for(Tweet *tweet in tweets) {
