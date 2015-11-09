@@ -7,6 +7,7 @@
 //
 
 #import "TweetTableViewCell.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface TweetTableViewCell ()
 
@@ -38,6 +39,10 @@
 - (void) setTweet:(Tweet *)tweet {
     _tweet = tweet;
     self.tweetText.text = self.tweet.text;
+    self.tweetUserFullName.text = self.tweet.author.name;
+    self.tweetUserHandle.text = [NSString stringWithFormat:@"\@%@", self.tweet.author.screenName];
+    NSURL *url = [NSURL URLWithString:self.tweet.author.profileImageUrl];
+    [self.profileImage setImageWithURL:url];
     self.tweetText.preferredMaxLayoutWidth = 280;
 }
 

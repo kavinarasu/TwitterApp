@@ -21,8 +21,7 @@
 @implementation TweetsViewController
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"Cell is ");
-    return 1;
+    return self.tweets.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -48,7 +47,7 @@
     [[TwitterClient sharedInstance] homeTimeLineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
         self.tweets = tweets;
         for(Tweet *tweet in tweets) {
-//            NSLog(@"%@", tweet.text);
+            NSLog(@"%@", tweet.text);
         }
         [self.tweetsTableView reloadData];
     }];
