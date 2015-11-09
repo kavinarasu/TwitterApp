@@ -64,6 +64,9 @@
                             <constraint firstAttribute="height" constant="16" id="jRW-Aa-yD3"/>
                         </constraints>
                         <state key="normal" title="Button" backgroundImage="like-action.png"/>
+                        <connections>
+                            <action selector="onTappingFavorite:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="2DQ-N0-1Ka"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrE-jw-61T">
                         <rect key="frame" x="64" y="96" width="16" height="16"/>
@@ -72,6 +75,9 @@
                             <constraint firstAttribute="width" constant="16" id="pLf-xE-ORD"/>
                         </constraints>
                         <state key="normal" title="Button" image="reply-action_0.png"/>
+                        <connections>
+                            <action selector="onTappingReply:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="cTJ-Fz-iof"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ug0-ha-kNx">
                         <rect key="frame" x="116" y="96" width="16" height="16"/>
@@ -82,6 +88,9 @@
                             <constraint firstAttribute="width" constant="16" id="lmZ-iA-SCJ"/>
                         </constraints>
                         <state key="normal" title="Button" image="retweet-action.png"/>
+                        <connections>
+                            <action selector="onTappingRetweet:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="q2e-WA-UHq"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>

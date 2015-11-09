@@ -8,6 +8,7 @@
 
 #import "TweetTableViewCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "TwitterClient.h"
 
 @interface TweetTableViewCell ()
 
@@ -38,6 +39,22 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)onTappingFavorite:(id)sender {
+    [[TwitterClient sharedInstance] favoriteStatus:self.tweet.tweetId completion:^(Tweet *tweet, NSError *error) {
+        if(error == nil) {
+            [self setTweet:tweet];
+        } else {
+            NSLog(@"Error in favoriting status");
+        }
+    }];
+}
+
+- (IBAction)onTappingRetweet:(id)sender {
+}
+
+- (IBAction)onTappingReply:(id)sender {
+}
+
 - (void) setTweet:(Tweet *)tweet {
     _tweet = tweet;
     self.tweetText.text = self.tweet.text;
@@ -48,6 +65,8 @@
     self.tweetText.preferredMaxLayoutWidth = 280;
     if(self.tweet.favorited) {
         [self.favoriteActionButton setImage: [UIImage imageNamed:@"like-action-on.png"] forState:UIControlStateNormal];
+    } else {
+        [self.favoriteActionButton setImage: [UIImage imageNamed:@"like-action.png"] forState:UIControlStateNormal];
     }
     if(self.tweet.retweeted) {
         [self.retweetActionButton setImage: [UIImage imageNamed:@"retweet-action-on.png"] forState:UIControlStateNormal];

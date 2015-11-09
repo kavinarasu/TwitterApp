@@ -22,4 +22,6 @@
 
 - (void) tweetStatus: (NSDictionary *) params completion:(void (^) (Tweet *tweet, NSError *error)) completion;
 
+- (void) favoriteStatus: (NSNumber *) tweetId completion:(void (^) (Tweet *tweet, NSError *error)) completion;
+
 @end

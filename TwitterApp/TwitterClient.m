@@ -84,5 +84,17 @@ NSString *const kTwitterBaseUrl = @"https://api.twitter.com";
     }];
 }
 
+- (void) favoriteStatus:(NSNumber *)tweetId completion:(void (^)(Tweet *, NSError *))completion {
+    NSDictionary *params = [[NSMutableDictionary alloc] init];
+    [params setValue:tweetId forKey:@"id"];
+    [self POST:@"1.1/favorites/create.json" parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        Tweet *tweet = [[Tweet alloc] initWithDictionary:responseObject];
+        completion(tweet, nil);
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        completion(nil, error);
+    }];
+
+}
+
 
 @end
