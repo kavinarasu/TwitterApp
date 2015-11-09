@@ -6,6 +6,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TweetDetailViewController">
             <connections>
+                <outlet property="favoriteCountLabel" destination="FV6-ko-sNW" id="cWz-BS-cGL"/>
+                <outlet property="favoriteImageView" destination="152-GS-d7d" id="tVX-GZ-Kq9"/>
+                <outlet property="profileImage" destination="nce-ml-GjD" id="fP2-is-vfu"/>
+                <outlet property="replyImageView" destination="4Xv-HL-TBQ" id="xJP-bK-6Ls"/>
+                <outlet property="retweetActionImage" destination="4Bq-wg-GiS" id="4BF-pi-K7V"/>
+                <outlet property="retweetCountLabel" destination="d4O-2Y-9Un" id="gOd-ov-T5P"/>
+                <outlet property="retweetImageView" destination="E0g-EW-HV8" id="hS7-v9-bPM"/>
+                <outlet property="retweetLabel" destination="aqv-T4-RC9" id="ofT-AE-YSM"/>
+                <outlet property="tweetDate" destination="g56-cX-Bov" id="1qV-48-8RN"/>
+                <outlet property="tweetText" destination="kRi-hh-Tx7" id="Cqq-E8-DqA"/>
+                <outlet property="userFullName" destination="CWw-Mf-5BB" id="ccf-WG-czz"/>
+                <outlet property="userScreenName" destination="wSL-VC-PPw" id="Urs-Mr-LY9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,14 +29,14 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Jf-Gy-uys">
                     <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Bq-wg-GiS">
+                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retweet-action-inactive.png" translatesAutoresizingMaskIntoConstraints="NO" id="4Bq-wg-GiS">
                             <rect key="frame" x="40" y="8" width="16" height="16"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="16" id="Gh4-QG-u4r"/>
                                 <constraint firstAttribute="height" constant="16" id="XlP-ho-BGM"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Wu retweeted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqv-T4-RC9">
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Wu retweeted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqv-T4-RC9">
                             <rect key="frame" x="64" y="8" width="109" height="14.5"/>
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -37,12 +49,6 @@
                                 <constraint firstAttribute="height" constant="48" id="gSe-Dd-AMG"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Michael Rooney" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWw-Mf-5BB">
-                            <rect key="frame" x="64" y="30" width="102" height="16"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@michaelrooney" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSL-VC-PPw">
                             <rect key="frame" x="64" y="49" width="100" height="16"/>
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
@@ -94,6 +100,12 @@
                                 <constraint firstAttribute="width" constant="24" id="jrc-Rr-dLx"/>
                             </constraints>
                         </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Michael Rooney" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWw-Mf-5BB">
+                            <rect key="frame" x="64" y="30" width="102" height="16"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -137,6 +149,7 @@
     <resources>
         <image name="like-action.png" width="54" height="72"/>
         <image name="reply-action_0.png" width="65" height="72"/>
+        <image name="retweet-action-inactive.png" width="75" height="72"/>
         <image name="retweet-action.png" width="75" height="72"/>
     </resources>
 </document>

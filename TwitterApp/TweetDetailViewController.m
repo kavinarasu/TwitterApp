@@ -7,8 +7,21 @@
 //
 
 #import "TweetDetailViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface TweetDetailViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *retweetActionImage;
+@property (weak, nonatomic) IBOutlet UILabel *retweetLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImage;
+@property (weak, nonatomic) IBOutlet UILabel *userFullName;
+@property (weak, nonatomic) IBOutlet UILabel *userScreenName;
+@property (weak, nonatomic) IBOutlet UILabel *tweetText;
+@property (weak, nonatomic) IBOutlet UILabel *tweetDate;
+@property (weak, nonatomic) IBOutlet UILabel *retweetCountLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *replyImageView;
+@property (weak, nonatomic) IBOutlet UILabel *favoriteCountLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *retweetImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *favoriteImageView;
 
 @end
 
@@ -16,7 +29,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.tweetText.text = self.tweet.text;
+    self.tweetText.preferredMaxLayoutWidth = 280;
+    self.userFullName.text = self.tweet.author.name;
+    self.userScreenName.text = [NSString stringWithFormat:@"\@%@", self.tweet.author.screenName];
+    NSURL *url = [NSURL URLWithString:self.tweet.author.profileImageUrl];
+    [self.profileImage setImageWithURL:url];
+    if(self.tweet.favorited) {
+        [self.favoriteImageView setImage: [UIImage imageNamed:@"like-action-on.png"]];
+    }
+    if(self.tweet.retweeted) {
+        [self.retweetImageView setImage: [UIImage imageNamed:@"retweet-action-on.png"]];
+    }
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"M/d/YY, hh:mm a";
+    NSString *dateValue = [formatter stringFromDate:self.tweet.createdAt];
+    self.tweetDate.text = dateValue;
 }
 
 - (void)didReceiveMemoryWarning {
