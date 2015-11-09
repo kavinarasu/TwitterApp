@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) NSDate *createdAt;
 @property (nonatomic, strong) User *author;
+@property (nonatomic) BOOL favorited;
 
 - (id) initWithDictionary:(NSDictionary *) dictionary;
 

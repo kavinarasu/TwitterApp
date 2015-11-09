@@ -44,6 +44,9 @@
     NSURL *url = [NSURL URLWithString:self.tweet.author.profileImageUrl];
     [self.profileImage setImageWithURL:url];
     self.tweetText.preferredMaxLayoutWidth = 280;
+    if(self.tweet.favorited) {
+        [self.favoriteActionImage setImage: [UIImage imageNamed:@"like-action-on.png"]];
+    }
 }
 
 @end
