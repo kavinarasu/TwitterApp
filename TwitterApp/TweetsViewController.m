@@ -14,9 +14,9 @@
 #import "TweetDetailViewController.h"
 #import "NewTweetViewController.h"
 
-@interface TweetsViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface TweetsViewController () <UITableViewDataSource, UITableViewDelegate, NewTweetViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tweetsTableView;
-@property (nonatomic, strong) NSArray *tweets;
+@property (nonatomic, strong) NSMutableArray *tweets;
 
 @end
 
@@ -40,12 +40,18 @@
     
 }
 
+- (void) newTweetViewController:(NewTweetViewController *)newTweetViewController didCreateTweet:(Tweet *)tweet {
+    [self.tweets insertObject:tweet atIndex:0];
+    [self.tweetsTableView reloadData];
+}
+
 - (void) onLogOut {
     [User logout];
 }
 
 - (void) onCompose {
     NewTweetViewController *viewController = [[NewTweetViewController alloc] init];
+    viewController.delegate = self;
     [viewController setUser:[User currentUser]];
     UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:viewController];
     [self presentViewController:navigation animated:YES completion:nil];

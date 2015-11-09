@@ -31,6 +31,7 @@
     [[TwitterClient sharedInstance] tweetStatus:params completion:^(Tweet *tweet, NSError *error) {
         if(error == nil) {
             NSLog(@"Successfully tweeted %@", tweet.text);
+            [self.delegate newTweetViewController:self didCreateTweet:tweet];
             [self closeModal];
         } else {
             NSLog(@"Tweet failed");
