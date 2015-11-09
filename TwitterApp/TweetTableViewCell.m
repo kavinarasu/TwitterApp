@@ -40,6 +40,7 @@
 }
 
 - (IBAction)onTappingFavorite:(id)sender {
+    if(!self.tweet.favorited) {
     [[TwitterClient sharedInstance] favoriteStatus:self.tweet.tweetId completion:^(Tweet *tweet, NSError *error) {
         if(error == nil) {
             [self setTweet:tweet];
@@ -47,6 +48,15 @@
             NSLog(@"Error in favoriting status");
         }
     }];
+    } else {
+        [[TwitterClient sharedInstance] unfavoriteStatus:self.tweet.tweetId completion:^(Tweet *tweet, NSError *error) {
+            if(error == nil) {
+                [self setTweet:tweet];
+            } else {
+                NSLog(@"Error in favoriting status");
+            }
+        }];
+    }
 }
 
 - (IBAction)onTappingRetweet:(id)sender {

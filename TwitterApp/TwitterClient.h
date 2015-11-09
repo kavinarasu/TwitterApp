@@ -24,4 +24,6 @@
 
 - (void) favoriteStatus: (NSNumber *) tweetId completion:(void (^) (Tweet *tweet, NSError *error)) completion;
 
+- (void) unfavoriteStatus: (NSNumber *) tweetId completion:(void (^) (Tweet *tweet, NSError *error)) completion;
+
 @end
