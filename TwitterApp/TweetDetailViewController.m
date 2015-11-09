@@ -45,6 +45,8 @@
     formatter.dateFormat = @"M/d/YY, hh:mm a";
     NSString *dateValue = [formatter stringFromDate:self.tweet.createdAt];
     self.tweetDate.text = dateValue;
+    self.retweetCountLabel.text = [NSString stringWithFormat:@"%ld RETWEETS", (long)self.tweet.retweetCount];
+    self.favoriteCountLabel.text = [NSString stringWithFormat:@"%ld FAVORITES", (long)self.tweet.favoriteCount];
 }
 
 - (void)didReceiveMemoryWarning {
