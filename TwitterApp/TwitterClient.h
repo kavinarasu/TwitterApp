@@ -8,6 +8,7 @@
 
 #import "BDBOAuth1RequestOperationManager.h"
 #import "User.h"
+#import "Tweet.h"
 
 @interface TwitterClient : BDBOAuth1RequestOperationManager
 
@@ -18,5 +19,7 @@
 - (void) openURL:(NSURL *) url;
 
 - (void) homeTimeLineWithParams: (NSDictionary *) params completion:(void (^) (NSArray *tweets, NSError *error)) completion;
+
+- (void) tweetStatus: (NSDictionary *) params completion:(void (^) (Tweet *tweet, NSError *error)) completion;
 
 @end

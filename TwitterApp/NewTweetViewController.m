@@ -8,6 +8,7 @@
 
 #import "NewTweetViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "TwitterClient.h"
 
 @interface NewTweetViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
@@ -20,11 +21,25 @@
 @implementation NewTweetViewController
 
 - (void) onCancel {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self closeModal];
 }
 
 - (void) onTweet {
-    
+    NSString *status = self.tweetTextView.text;
+    NSDictionary *params = [[NSMutableDictionary alloc] init];
+    [params setValue:status forKey:@"status"];
+    [[TwitterClient sharedInstance] tweetStatus:params completion:^(Tweet *tweet, NSError *error) {
+        if(error == nil) {
+            NSLog(@"Successfully tweeted %@", tweet.text);
+            [self closeModal];
+        } else {
+            NSLog(@"Tweet failed");
+        }
+    }];
+}
+
+- (void) closeModal {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)viewDidLoad {
