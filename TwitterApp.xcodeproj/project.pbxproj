@@ -30,6 +30,7 @@
 		8A814A131BF02A06005ED55E /* TweetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A814A111BF02A06005ED55E /* TweetTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		8A814A141BF02A06005ED55E /* TweetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A814A121BF02A06005ED55E /* TweetTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		8A814A161BF02A7E005ED55E /* retweet-action-inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A814A151BF02A7E005ED55E /* retweet-action-inactive.png */; settings = {ASSET_TAGS = (); }; };
+		8A814A181BF05382005ED55E /* retweet-action-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A814A171BF05382005ED55E /* retweet-action-on.png */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		8A814A111BF02A06005ED55E /* TweetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetTableViewCell.m; sourceTree = "<group>"; };
 		8A814A121BF02A06005ED55E /* TweetTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetTableViewCell.xib; sourceTree = "<group>"; };
 		8A814A151BF02A7E005ED55E /* retweet-action-inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "retweet-action-inactive.png"; path = "../../../../../Desktop/retweet-action-inactive.png"; sourceTree = "<group>"; };
+		8A814A171BF05382005ED55E /* retweet-action-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "retweet-action-on.png"; path = "../../../../../Desktop/retweet-action-on.png"; sourceTree = "<group>"; };
 		8F80806454B493604C384C93 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C3E2D6D8F63D491433BB0965 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +112,7 @@
 				8A814A051BF014F0005ED55E /* reply-action-pressed_0.png */,
 				8A814A061BF014F0005ED55E /* reply-action_0.png */,
 				8A814A071BF014F0005ED55E /* retweet-action.png */,
+				8A814A171BF05382005ED55E /* retweet-action-on.png */,
 				8A814A151BF02A7E005ED55E /* retweet-action-inactive.png */,
 				8A8149F41BEDF753005ED55E /* Models */,
 				8A8149D81BEDE4BF005ED55E /* AppDelegate.h */,
@@ -241,6 +244,7 @@
 				8A814A0D1BF014F0005ED55E /* reply-action-pressed_0.png in Resources */,
 				8A8149F31BEDE62B005ED55E /* LoginViewController.xib in Resources */,
 				8A814A0C1BF014F0005ED55E /* like-action-on-pressed.png in Resources */,
+				8A814A181BF05382005ED55E /* retweet-action-on.png in Resources */,
 				8A814A0B1BF014F0005ED55E /* like-action-on.png in Resources */,
 				8A814A161BF02A7E005ED55E /* retweet-action-inactive.png in Resources */,
 			);

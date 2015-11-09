@@ -47,6 +47,9 @@
     if(self.tweet.favorited) {
         [self.favoriteActionImage setImage: [UIImage imageNamed:@"like-action-on.png"]];
     }
+    if(self.tweet.retweeted) {
+        [self.retweetImageView setImage: [UIImage imageNamed:@"retweet-action-on.png"]];
+    }
 }
 
 @end
