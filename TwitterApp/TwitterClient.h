@@ -26,4 +26,6 @@
 
 - (void) unfavoriteStatus: (NSNumber *) tweetId completion:(void (^) (Tweet *tweet, NSError *error)) completion;
 
+- (void) retweet: (NSNumber *) tweetId completion:(void (^) (Tweet *tweet, NSError *error)) completion;
+
 @end

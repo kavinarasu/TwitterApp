@@ -88,6 +88,14 @@
 }
 
 - (IBAction)onRetweetTapped:(id)sender {
+    [[TwitterClient sharedInstance] retweet:self.tweet.tweetId completion:^(Tweet *tweet, NSError *error) {
+        if(error == nil) {
+            self.tweet = tweet;
+            [self updateView];
+        } else {
+            NSLog(@"Error in retweeting status");
+        }
+    }];
 }
 
 - (IBAction)onReplyTapped:(id)sender {

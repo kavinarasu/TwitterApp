@@ -106,5 +106,15 @@ NSString *const kTwitterBaseUrl = @"https://api.twitter.com";
     }];
 }
 
+- (void) retweet:(NSNumber *)tweetId completion:(void (^)(Tweet *, NSError *))completion {
+    NSString *url = [NSString stringWithFormat:@"1.1/statuses/retweet/%@.json", tweetId];
+    [self POST:url parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        Tweet *tweet = [[Tweet alloc] initWithDictionary:responseObject];
+        completion(tweet, nil);
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        completion(nil, error);
+    }];
+}
+
 
 @end
