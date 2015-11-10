@@ -13,6 +13,7 @@
 #import "TweetTableViewCell.h"
 #import "TweetDetailViewController.h"
 #import "NewTweetViewController.h"
+#import "JTProgressHUD.h"
 
 @interface TweetsViewController () <UITableViewDataSource, UITableViewDelegate, NewTweetViewControllerDelegate, TweetTableViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tweetsTableView;
@@ -107,13 +108,14 @@
 }
 
 - (void) fetchTweets {
+    [JTProgressHUD show];
     [[TwitterClient sharedInstance] homeTimeLineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
         self.tweets = tweets;
         for(Tweet *tweet in tweets) {
             NSLog(@"%@", tweet.text);
         }
         [self.tweetsTableView reloadData];
-        
+        [JTProgressHUD hide];
     }];
 }
 
