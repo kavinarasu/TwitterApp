@@ -56,6 +56,11 @@
     self.tweetDate.text = dateValue;
     self.retweetCountLabel.text = [NSString stringWithFormat:@"%ld RETWEETS", (long)self.tweet.retweetCount];
     self.favoriteCountLabel.text = [NSString stringWithFormat:@"%ld FAVORITES", (long)self.tweet.favoriteCount];
+    if(self.tweet.retweetedUser) {
+        self.retweetLabel.text = [NSString stringWithFormat:@"Retweeted by %@", self.tweet.retweetedUser.name];
+        self.retweetLabel.alpha = 1;
+        self.retweetActionImage.alpha = 1;
+    }
     
 }
 
