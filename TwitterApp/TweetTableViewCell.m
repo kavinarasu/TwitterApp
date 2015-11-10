@@ -106,6 +106,9 @@
         self.retweetText.text = [NSString stringWithFormat:@"Retweeted by %@", self.tweet.retweetedUser.name];
         self.retweetText.alpha = 1;
         self.retweetImage.alpha = 1;
+    } else {
+        self.retweetText.alpha = 0;
+        self.retweetImage.alpha = 0;
     }
 }
 

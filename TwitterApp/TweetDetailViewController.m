@@ -105,6 +105,7 @@
 
 - (IBAction)onReplyTapped:(id)sender {
     NewTweetViewController *viewController = [[NewTweetViewController alloc] init];
+    viewController.delegate = self.sourceController;
     viewController.replyToId = self.tweet.tweetId;
     viewController.replyToUser = self.tweet.author;
     [viewController setUser:[User currentUser]];

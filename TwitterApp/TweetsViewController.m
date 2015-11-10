@@ -37,6 +37,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     TweetDetailViewController *detail = [[TweetDetailViewController alloc] init];
     [detail setTweet:self.tweets[indexPath.row]];
+    [detail setSourceController:self];
     [self.navigationController pushViewController:detail animated:YES];
     
 }
@@ -47,7 +48,9 @@
 }
 
 - (void) tweetTableViewCell:(TweetTableViewCell *)tweetTableViewCell replyDidGetTappedFor:(Tweet *)tweet {
+    NSLog(@"%@", tweet);
     NewTweetViewController *viewController = [[NewTweetViewController alloc] init];
+    viewController.delegate = self;
     viewController.replyToId = tweet.tweetId;
     viewController.replyToUser = tweet.author;
     [viewController setUser:[User currentUser]];
