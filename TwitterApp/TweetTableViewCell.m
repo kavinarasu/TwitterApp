@@ -61,7 +61,7 @@
 }
 
 - (IBAction)onTappingRetweet:(id)sender {
-    
+    [self.delegate tweetTableViewCell:self retweetDidGetTappedFor:self.tweet];
 }
 
 - (IBAction)onTappingReply:(id)sender {

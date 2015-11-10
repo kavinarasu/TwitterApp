@@ -15,6 +15,8 @@
 
 - (void) tweetTableViewCell:(TweetTableViewCell *) tweetTableViewCell replyDidGetTappedFor:(Tweet *) tweet;
 
+- (void) tweetTableViewCell:(TweetTableViewCell *) tweetTableViewCell retweetDidGetTappedFor:(Tweet *) tweet;
+
 @end
 
 @interface TweetTableViewCell : UITableViewCell

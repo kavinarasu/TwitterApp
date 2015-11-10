@@ -55,6 +55,18 @@
     [self presentViewController:navigation animated:YES completion:nil];
 }
 
+- (void) tweetTableViewCell:(TweetTableViewCell *)tweetTableViewCell retweetDidGetTappedFor:(Tweet *)tweet {
+    [[TwitterClient sharedInstance] retweet:tweet.tweetId completion:^(Tweet *tweet, NSError *error) {
+        if(error == nil) {
+            [self.tweets insertObject:tweet atIndex:0];
+            [self.tweetsTableView reloadData];
+        } else {
+            NSLog(@"Error in retweeting status");
+        }
+    }];
+
+}
+
 - (void) onLogOut {
     [User logout];
 }
