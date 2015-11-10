@@ -66,7 +66,7 @@
     UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Tweet" style:UIBarButtonItemStylePlain target:self action:@selector(onTweet)];
     self.navigationItem.rightBarButtonItem = rightBarItem;
     if(self.replyToUser) {
-        self.tweetTextView.text = [NSString stringWithFormat:@"\@%@", self.replyToUser.screenName];
+        self.tweetTextView.text = [NSString stringWithFormat:@"\@%@ ", self.replyToUser.screenName];
     }
     // Do any additional setup after loading the view from its nib.
 }

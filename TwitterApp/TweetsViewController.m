@@ -48,7 +48,6 @@
 
 - (void) tweetTableViewCell:(TweetTableViewCell *)tweetTableViewCell replyDidGetTappedFor:(Tweet *)tweet {
     NewTweetViewController *viewController = [[NewTweetViewController alloc] init];
-    viewController.delegate = self;
     viewController.replyToId = tweet.tweetId;
     viewController.replyToUser = tweet.author;
     [viewController setUser:[User currentUser]];

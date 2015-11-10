@@ -9,6 +9,7 @@
 #import "TweetDetailViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "TwitterClient.h"
+#import "NewTweetViewController.h"
 
 @interface TweetDetailViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *retweetActionImage;
@@ -32,6 +33,7 @@
     [super viewDidLoad];
     [self updateView];
 }
+
 
 - (void) updateView {
     self.tweetText.text = self.tweet.text;
@@ -89,6 +91,12 @@
 }
 
 - (IBAction)onReplyTapped:(id)sender {
+    NewTweetViewController *viewController = [[NewTweetViewController alloc] init];
+    viewController.replyToId = self.tweet.tweetId;
+    viewController.replyToUser = self.tweet.author;
+    [viewController setUser:[User currentUser]];
+    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:viewController];
+    [self presentViewController:navigation animated:YES completion:nil];
 }
 
 /*
