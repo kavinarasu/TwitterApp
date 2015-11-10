@@ -20,12 +20,12 @@
         } else {
             [self setValuesForFieldsWithDictionary:dictionary];
         }
-        NSNumber *favorite = dictionary[@"favorited"];
-        NSNumber *retweet = dictionary[@"retweeted"];
+        BOOL favorite = [dictionary[@"favorited"] boolValue];
+        BOOL retweet = [dictionary[@"retweeted"] boolValue];
         NSNumber *favoriteCount = dictionary[@"favorite_count"];
         NSNumber *retweetCount = dictionary[@"retweet_count"];
-        self.favorited = [favorite boolValue];
-        self.retweeted = [retweet boolValue];
+        self.favorited = favorite;
+        self.retweeted = retweet;
         self.favoriteCount = [favoriteCount integerValue];
         self.retweetCount = [retweetCount integerValue];
     }
