@@ -91,14 +91,27 @@
     UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Compose" style:UIBarButtonItemStylePlain target:self action:@selector(onCompose)];
     self.navigationItem.leftBarButtonItem = leftBarItem;
     self.navigationItem.rightBarButtonItem = rightBarItem;
+    [self fetchTweets];
+    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+    [refresh addTarget:self action:@selector(onRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tweetsTableView insertSubview:refresh atIndex:0];
+    // Do any additional setup after loading the view from its nib.
+}
+
+- (void) onRefresh:(UIRefreshControl *)refreshControl {
+    [self fetchTweets];
+    [refreshControl endRefreshing];
+}
+
+- (void) fetchTweets {
     [[TwitterClient sharedInstance] homeTimeLineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
         self.tweets = tweets;
         for(Tweet *tweet in tweets) {
             NSLog(@"%@", tweet.text);
         }
         [self.tweetsTableView reloadData];
+        
     }];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {
