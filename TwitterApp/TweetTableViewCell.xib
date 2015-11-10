@@ -21,7 +21,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Wu retweeted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2k-4S-w7h">
-                        <rect key="frame" x="64" y="8" width="101" height="13.5"/>
+                        <rect key="frame" x="64" y="8" width="101" height="10.5"/>
                         <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="11"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -34,25 +34,25 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Michael Rooney" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nqf-Xc-1Sg">
-                        <rect key="frame" x="64" y="29" width="133" height="14.5"/>
+                        <rect key="frame" x="64" y="26" width="133" height="14.5"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@TheMichaelMoran" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzg-13-W11">
-                        <rect key="frame" x="202" y="29" width="111.5" height="14.5"/>
+                        <rect key="frame" x="202" y="26" width="111.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="12"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="12/12/15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJl-9U-Eh9">
-                        <rect key="frame" x="321" y="29" width="47.5" height="14.5"/>
+                        <rect key="frame" x="321" y="26" width="47.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Did you know you can tell if someone is a programmer  simply by saying the word 'timezones' and seeing  if they crigne?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXW-ja-sYS">
-                        <rect key="frame" x="64" y="51" width="308" height="37.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Did you know you can tell if someone is a programmer  simply by saying the word 'timezones' and seeing  if they crigne?" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXW-ja-sYS">
+                        <rect key="frame" x="64" y="49" width="308" height="39.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -108,7 +108,7 @@
                     <constraint firstItem="MCb-22-Lj6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="Ldo-4Z-xc7"/>
                     <constraint firstItem="U2k-4S-w7h" firstAttribute="leading" secondItem="MCb-22-Lj6" secondAttribute="trailing" constant="8" id="TrV-Xv-gdj"/>
                     <constraint firstAttribute="trailing" secondItem="UJl-9U-Eh9" secondAttribute="trailing" constant="8" id="WE5-oT-PxG"/>
-                    <constraint firstItem="vrE-jw-61T" firstAttribute="top" secondItem="oXW-ja-sYS" secondAttribute="bottom" constant="8" id="WmF-pv-7xB"/>
+                    <constraint firstItem="vrE-jw-61T" firstAttribute="top" relation="greaterThanOrEqual" secondItem="oXW-ja-sYS" secondAttribute="bottom" constant="8" id="WmF-pv-7xB"/>
                     <constraint firstItem="rqH-TG-nSs" firstAttribute="leading" secondItem="Ug0-ha-kNx" secondAttribute="trailing" constant="36" id="YTB-ck-eTv"/>
                     <constraint firstItem="Ug0-ha-kNx" firstAttribute="leading" secondItem="vrE-jw-61T" secondAttribute="trailing" constant="36" id="aiZ-nt-30H"/>
                     <constraint firstItem="9eF-5V-DI1" firstAttribute="top" secondItem="MCb-22-Lj6" secondAttribute="bottom" constant="8" id="eWm-6d-teo"/>
