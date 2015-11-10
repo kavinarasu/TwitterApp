@@ -13,13 +13,13 @@
 - (id) initWithDictionary:(NSDictionary *) dictionary {
     self = [super init];
     if(self) {
-        self.author = [[User alloc] initWithDictionary:dictionary[@"user"]];
-        self.tweetId = dictionary[@"id"];
-        self.text = dictionary[@"text"];
-        NSString *createdAtString = dictionary[@"created_at"];
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        formatter.dateFormat = @"EEE MMM d HH:mm:ss Z y";
-        self.createdAt = [formatter dateFromString:createdAtString];
+        if(dictionary[@"retweeted_status"]) {
+            NSDictionary *retweetDict = dictionary[@"retweeted_status"];
+            [self setValuesForFieldsWithDictionary:retweetDict];
+            self.retweetedUser = [[User alloc] initWithDictionary:dictionary[@"user"]];
+        } else {
+            [self setValuesForFieldsWithDictionary:dictionary];
+        }
         NSNumber *favorite = dictionary[@"favorited"];
         NSNumber *retweet = dictionary[@"retweeted"];
         NSNumber *favoriteCount = dictionary[@"favorite_count"];
@@ -30,6 +30,16 @@
         self.retweetCount = [retweetCount integerValue];
     }
     return self;
+}
+
+- (void) setValuesForFieldsWithDictionary:(NSDictionary *) dictionary {
+    self.author = [[User alloc] initWithDictionary:dictionary[@"user"]];
+    self.tweetId = dictionary[@"id"];
+    self.text = dictionary[@"text"];
+    NSString *createdAtString = dictionary[@"created_at"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"EEE MMM d HH:mm:ss Z y";
+    self.createdAt = [formatter dateFromString:createdAtString];
 }
 
 + (NSArray *) tweetsFromArray:(NSArray *) array {

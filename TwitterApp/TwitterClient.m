@@ -69,6 +69,13 @@ NSString *const kTwitterBaseUrl = @"https://api.twitter.com";
     [self GET:@"1.1/statuses/home_timeline.json" parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
 //        NSLog(@"%@", responseObject);
         NSArray *tweets = [Tweet tweetsFromArray:responseObject];
+//        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+//        [dict setValue:responseObject forKey:@"response"];
+//        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict
+//                                                           options:NSJSONWritingPrettyPrinted
+//                                                             error:nil];
+//        NSString *str = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+//        NSLog(@"%@", str);
         completion(tweets, nil);
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         completion(nil, error);

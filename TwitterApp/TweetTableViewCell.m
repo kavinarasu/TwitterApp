@@ -102,6 +102,11 @@
         dateValue = [formatter stringFromDate:self.tweet.createdAt];
     }
     self.tweetTime.text = dateValue;
+    if(self.tweet.retweetedUser) {
+        self.retweetText.text = [NSString stringWithFormat:@"Retweeted by %@", self.tweet.retweetedUser.name];
+        self.retweetText.alpha = 1;
+        self.retweetImage.alpha = 1;
+    }
 }
 
 @end
