@@ -8,10 +8,12 @@
 
 #import "MenuViewController.h"
 #import "MenuTableViewCell.h"
+#import "TweetsViewController.h"
 
-@interface MenuViewController () <UITableViewDataSource>
+@interface MenuViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *menuTableView;
 @property (strong, nonatomic) NSArray *menuItems;
+@property (strong, nonatomic) NSArray *viewControllers;
 
 @end
 
@@ -20,8 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.menuItems = @[@"Home",@"My Profile"];
+    UIViewController *viewController = [[TweetsViewController alloc] init];
+    self.viewControllers = @[viewController];
     [self.menuTableView registerNib:[UINib nibWithNibName:@"MenuTableViewCell" bundle:nil] forCellReuseIdentifier:@"menuCell"];
     self.menuTableView.dataSource = self;
+    self.menuTableView.delegate = self;
     NSLog(@"Created menu view");
     // Do any additional setup after loading the view from its nib.
 }
@@ -43,6 +48,13 @@
 //    UITableViewCell *cell = [[UITableViewCell alloc] init];
     return cell;
 }
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"Unselected");
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    self.hamburgerViewController.contentViewController = self.viewControllers[indexPath.row];
+}
+
 
 
 /*

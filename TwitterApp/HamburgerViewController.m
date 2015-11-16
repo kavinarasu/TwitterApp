@@ -37,6 +37,26 @@
     [self.menuView addSubview:menuViewController.view];
 }
 
+- (void) setContentViewController:(UIViewController *)contentViewController {
+    NSLog(@"Setting content view ");
+    
+    if(_contentViewController != nil) {
+        [_contentViewController willMoveToParentViewController:nil];
+        [_contentViewController.view removeFromSuperview];
+        [_contentViewController didMoveToParentViewController:nil];
+    }
+    
+    _contentViewController = contentViewController;
+    [self.view layoutIfNeeded];
+    [_contentViewController willMoveToParentViewController:self];
+    [self.contentView addSubview:contentViewController.view];
+    [_contentViewController didMoveToParentViewController:self];
+    [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.4 initialSpringVelocity:0.4 options:0 animations:^{
+        self.leftMarginConstraint.constant = 0;
+    } completion:nil];
+
+}
+
 - (IBAction)onContentViewPanned:(UIPanGestureRecognizer *)sender {
     CGPoint translation = [sender translationInView:sender.view];
     CGPoint velocity = [sender velocityInView:sender.view];
