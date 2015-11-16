@@ -52,7 +52,9 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"Unselected");
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    self.hamburgerViewController.contentViewController = self.viewControllers[indexPath.row];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.viewControllers[indexPath.row]];
+//    self.hamburgerViewController.contentViewController = self.viewControllers[indexPath.row];
+    self.hamburgerViewController.contentViewController = navController;
 }
 
 
