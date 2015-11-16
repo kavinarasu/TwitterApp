@@ -10,6 +10,8 @@
 #import "LoginViewController.h"
 #import "TweetsViewController.h"
 #import "TwitterClient.h"
+#import "MenuViewController.h"
+#import "HamburgerViewController.h"
 #import "User.h"
 
 @interface AppDelegate ()
@@ -31,10 +33,10 @@
         self.window.rootViewController = [[LoginViewController alloc] init];
     } else {
         NSLog(@"Logged in as %@", user.name);
-        UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:[[TweetsViewController alloc] init]];
-        self.window.rootViewController = navigation;
-//        [ presentViewController:navigation animated:YES completion:nil];
-//            self.window.rootViewController = [[TweetsViewController alloc] init];
+        MenuViewController *menuViewController = [[MenuViewController alloc] init];
+        HamburgerViewController *hamburgerViewController = [[HamburgerViewController alloc] init];
+        hamburgerViewController.menuViewController = menuViewController;
+        self.window.rootViewController = hamburgerViewController;
     }
     [self.window makeKeyAndVisible];
     return YES;
