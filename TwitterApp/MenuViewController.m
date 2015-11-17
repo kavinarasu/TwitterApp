@@ -19,6 +19,7 @@
 @property (strong, nonatomic) NSArray *iconImages;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 
 @end
 
@@ -46,6 +47,7 @@
     NSURL *url = [NSURL URLWithString:user.profileImageUrl];
     [self.profileImageView setImageWithURL:url];
     self.userNameLabel.text = user.name;
+    self.descriptionLabel.text = user.tagline;
     // Do any additional setup after loading the view from its nib.
 }
 

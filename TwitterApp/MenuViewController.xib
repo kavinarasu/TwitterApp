@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuViewController">
             <connections>
+                <outlet property="descriptionLabel" destination="SOP-JW-Jrc" id="8yN-5m-at2"/>
                 <outlet property="menuTableView" destination="iU4-40-meS" id="f86-7E-c1R"/>
                 <outlet property="profileImageView" destination="nFj-qg-HXq" id="0qx-kH-Q77"/>
                 <outlet property="userNameLabel" destination="1xV-YQ-Gay" id="x5T-Yr-PmQ"/>
@@ -30,6 +31,12 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOP-JW-Jrc">
+                    <rect key="frame" x="79" y="92.5" width="30.5" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iU4-40-meS">
                     <rect key="frame" x="0.0" y="139" width="320" height="429"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -41,9 +48,11 @@
                 <constraint firstItem="nFj-qg-HXq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="5" id="FZw-3U-ICt"/>
                 <constraint firstItem="iU4-40-meS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="HQc-kK-PXy"/>
                 <constraint firstItem="nFj-qg-HXq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="W6m-FG-ToC"/>
+                <constraint firstItem="SOP-JW-Jrc" firstAttribute="top" secondItem="1xV-YQ-Gay" secondAttribute="bottom" constant="2" id="Y3q-W9-huK"/>
                 <constraint firstItem="iU4-40-meS" firstAttribute="top" secondItem="nFj-qg-HXq" secondAttribute="bottom" constant="5" id="alV-ck-LKp"/>
                 <constraint firstAttribute="trailing" secondItem="iU4-40-meS" secondAttribute="trailing" id="cQy-uL-yS5"/>
                 <constraint firstItem="1xV-YQ-Gay" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="dNp-sk-KUd"/>
+                <constraint firstItem="SOP-JW-Jrc" firstAttribute="leading" secondItem="nFj-qg-HXq" secondAttribute="trailing" constant="10" id="mfM-4a-28x"/>
                 <constraint firstAttribute="bottom" secondItem="iU4-40-meS" secondAttribute="bottom" id="nl2-HT-w0g"/>
             </constraints>
             <point key="canvasLocation" x="368" y="310"/>
