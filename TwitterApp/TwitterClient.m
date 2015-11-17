@@ -82,6 +82,23 @@ NSString *const kTwitterBaseUrl = @"https://api.twitter.com";
     }];
 }
 
+- (void) mentionsTimeLineWithParams:(NSDictionary *)params completion:(void (^)(NSArray *, NSError *))completion {
+    [self GET:@"1.1/statuses/mentions_timeline.json" parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        //        NSLog(@"%@", responseObject);
+        NSArray *tweets = [Tweet tweetsFromArray:responseObject];
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+        [dict setValue:responseObject forKey:@"response"];
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict
+                                                           options:NSJSONWritingPrettyPrinted
+                                                             error:nil];
+        NSString *str = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        NSLog(@"%@", str);
+        completion(tweets, nil);
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        completion(nil, error);
+    }];
+}
+
 - (void) tweetStatus:(NSDictionary *)params completion:(void (^)(Tweet *, NSError *))completion {
     [self POST:@"1.1/statuses/update.json" parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];

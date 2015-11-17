@@ -35,7 +35,7 @@
         NSLog(@"Logged in as %@", user.name);
         MenuViewController *menuViewController = [[MenuViewController alloc] init];
         HamburgerViewController *hamburgerViewController = [[HamburgerViewController alloc] init];
-        TweetsViewController *tweetsViewController = [[TweetsViewController alloc] init];
+        TweetsViewController *tweetsViewController = [[TweetsViewController alloc] initWithHome];
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:tweetsViewController];
         hamburgerViewController.menuViewController = menuViewController;
         hamburgerViewController.contentViewController = navController;

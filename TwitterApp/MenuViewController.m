@@ -21,9 +21,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.menuItems = @[@"Home",@"My Profile"];
-    UIViewController *viewController = [[TweetsViewController alloc] init];
-    self.viewControllers = @[viewController];
+    self.menuItems = @[@"Home",@"Mentions"];
+    UIViewController *viewController1 = [[TweetsViewController alloc] initWithHome];
+    UIViewController *viewController2 = [[TweetsViewController alloc] initWithMentions];
+    self.viewControllers = @[viewController1, viewController2];
     [self.menuTableView registerNib:[UINib nibWithNibName:@"MenuTableViewCell" bundle:nil] forCellReuseIdentifier:@"menuCell"];
     self.menuTableView.dataSource = self;
     self.menuTableView.delegate = self;

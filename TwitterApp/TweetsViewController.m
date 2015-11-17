@@ -18,10 +18,38 @@
 @interface TweetsViewController () <UITableViewDataSource, UITableViewDelegate, NewTweetViewControllerDelegate, TweetTableViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tweetsTableView;
 @property (nonatomic, strong) NSMutableArray *tweets;
+@property (nonatomic) NSInteger *timeline;
 
 @end
 
 @implementation TweetsViewController
+
+- (TweetsViewController *) initWithHome {
+    self = [super init];
+    if(self) {
+        NSLog(@"Set to home");
+        self.timeline = 0;
+    }
+    return self;
+}
+
+- (TweetsViewController *) initWithMentions {
+    self = [super init];
+    if(self) {
+        NSLog(@"Set to home");
+        self.timeline = 1;
+    }
+    return self;
+}
+
+- (id) init {
+    self = [super init];
+    if(self) {
+        NSLog(@"Set to home");
+        self.timeline = 0;
+    }
+    return self;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.tweets.count;
@@ -109,6 +137,7 @@
 
 - (void) fetchTweets {
     [JTProgressHUD show];
+    if(self.timeline == 0) {
     [[TwitterClient sharedInstance] homeTimeLineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
         self.tweets = tweets;
         for(Tweet *tweet in tweets) {
@@ -117,6 +146,17 @@
         [self.tweetsTableView reloadData];
         [JTProgressHUD hide];
     }];
+    } else {
+        [[TwitterClient sharedInstance] mentionsTimeLineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
+            self.tweets = tweets;
+            for(Tweet *tweet in tweets) {
+                NSLog(@"%@", tweet.text);
+            }
+            [self.tweetsTableView reloadData];
+            [JTProgressHUD hide];
+        }];
+    }
+    NSLog(@"Timeline is %ld", self.timeline);
 }
 
 - (void)didReceiveMemoryWarning {
