@@ -10,12 +10,15 @@
 #import "MenuTableViewCell.h"
 #import "TweetsViewController.h"
 #import "ProfileViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface MenuViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *menuTableView;
 @property (strong, nonatomic) NSArray *menuItems;
 @property (strong, nonatomic) NSArray *viewControllers;
 @property (strong, nonatomic) NSArray *iconImages;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 
 @end
 
@@ -39,6 +42,10 @@
     self.menuTableView.dataSource = self;
     self.menuTableView.delegate = self;
     NSLog(@"Created menu view");
+    User *user = [User currentUser];
+    NSURL *url = [NSURL URLWithString:user.profileImageUrl];
+    [self.profileImageView setImageWithURL:url];
+    self.userNameLabel.text = user.name;
     // Do any additional setup after loading the view from its nib.
 }
 
