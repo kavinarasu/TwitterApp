@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.menuItems = @[@"Home",@"Mentions",@"My Profile"];
+    self.menuItems = @[@"Home",@"Mentions",@"My Profile",@"Log Out"];
     UIViewController *viewController1 = [[TweetsViewController alloc] initWithHome];
     UIViewController *viewController2 = [[TweetsViewController alloc] initWithMentions];
     UIViewController *viewController3 = [[ProfileViewController alloc] initWithUser:[User currentUser]];
@@ -34,7 +34,8 @@
     UIImage *image1 = [UIImage imageNamed:@"ic_home"];
     UIImage *image2 = [UIImage imageNamed:@"ic_person"];
     UIImage *image3 = [UIImage imageNamed:@"ic_contact_mail"];
-    self.iconImages = @[image1, image2, image3];
+    UIImage *image4 = [UIImage imageNamed:@"ic_exit_to_app"];
+    self.iconImages = @[image1, image2, image3, image4];
     self.menuTableView.dataSource = self;
     self.menuTableView.delegate = self;
     NSLog(@"Created menu view");
@@ -63,9 +64,14 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"Unselected");
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if(indexPath.row != self.menuItems.count - 1) {
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.viewControllers[indexPath.row]];
 //    self.hamburgerViewController.contentViewController = self.viewControllers[indexPath.row];
+    
     self.hamburgerViewController.contentViewController = navController;
+    } else {
+        [User logout];
+    }
 }
 
 

@@ -100,10 +100,6 @@
 
 }
 
-- (void) onLogOut {
-    [User logout];
-}
-
 - (void) onCompose {
     NewTweetViewController *viewController = [[NewTweetViewController alloc] init];
     viewController.delegate = self;
@@ -120,9 +116,7 @@
     self.tweetsTableView.rowHeight = UITableViewAutomaticDimension;
     self.tweetsTableView.estimatedRowHeight = 120;
     self.title = @"Tweets";
-    UIBarButtonItem *leftBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Log out" style:UIBarButtonItemStylePlain target:self action:@selector(onLogOut)];
     UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Compose" style:UIBarButtonItemStylePlain target:self action:@selector(onCompose)];
-    self.navigationItem.leftBarButtonItem = leftBarItem;
     self.navigationItem.rightBarButtonItem = rightBarItem;
     [self fetchTweets];
     UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
