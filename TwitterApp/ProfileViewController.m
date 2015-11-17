@@ -9,8 +9,10 @@
 #import "ProfileViewController.h"
 #import "TwitterClient.h"
 #import "User.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface ProfileViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *bannerImageView;
 
 @end
 
@@ -19,7 +21,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     User *user = [User currentUser];
-    [[TwitterClient sharedInstance] fetchUser:user.screenName completion:nil];
+    [[TwitterClient sharedInstance] fetchUser:user.screenName completion:^(User * user, NSError * error) {
+        NSString *urlString = [NSString stringWithFormat:@"%@/mobile", user.bannerImageUrl];
+        NSURL *url = [NSURL URLWithString:urlString];
+        [self.bannerImageView setImageWithURL:url];
+    }];
     // Do any additional setup after loading the view from its nib.
 }
 
