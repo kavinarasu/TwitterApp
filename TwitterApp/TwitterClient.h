@@ -30,4 +30,6 @@
 
 - (void) retweet: (NSNumber *) tweetId completion:(void (^) (Tweet *tweet, NSError *error)) completion;
 
+- (void) fetchUser:(NSString *)screenName completion:(void (^)(User *, NSError *))completion;
+
 @end

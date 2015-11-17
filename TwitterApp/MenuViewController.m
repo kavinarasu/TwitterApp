@@ -9,6 +9,7 @@
 #import "MenuViewController.h"
 #import "MenuTableViewCell.h"
 #import "TweetsViewController.h"
+#import "ProfileViewController.h"
 
 @interface MenuViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *menuTableView;
@@ -21,10 +22,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.menuItems = @[@"Home",@"Mentions"];
+    self.menuItems = @[@"Home",@"Mentions",@"My Profile"];
     UIViewController *viewController1 = [[TweetsViewController alloc] initWithHome];
     UIViewController *viewController2 = [[TweetsViewController alloc] initWithMentions];
-    self.viewControllers = @[viewController1, viewController2];
+    UIViewController *viewController3 = [[ProfileViewController alloc] init];
+    self.viewControllers = @[viewController1, viewController2, viewController3];
     [self.menuTableView registerNib:[UINib nibWithNibName:@"MenuTableViewCell" bundle:nil] forCellReuseIdentifier:@"menuCell"];
     self.menuTableView.dataSource = self;
     self.menuTableView.delegate = self;

@@ -18,7 +18,7 @@
 @interface TweetsViewController () <UITableViewDataSource, UITableViewDelegate, NewTweetViewControllerDelegate, TweetTableViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tweetsTableView;
 @property (nonatomic, strong) NSMutableArray *tweets;
-@property (nonatomic) NSInteger *timeline;
+@property (nonatomic) NSInteger timeline;
 
 @end
 

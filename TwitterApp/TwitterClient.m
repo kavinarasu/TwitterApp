@@ -149,5 +149,18 @@ NSString *const kTwitterBaseUrl = @"https://api.twitter.com";
     }];
 }
 
+- (void) fetchUser:(NSString *)screenName completion:(void (^)(User *, NSError *))completion {
+    NSString *url = [NSString stringWithFormat:@"1.1/users/show.json"];
+    NSDictionary *params = [[NSMutableDictionary alloc] init];
+    [params setValue:screenName forKey:@"screen_name"];
+    [self GET:url parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSLog(@"response is %@", responseObject);
+//        Tweet *tweet = [[Tweet alloc] initWithDictionary:responseObject];
+//        completion(user, nil);
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        completion(nil, error);
+    }];
+}
+
 
 @end
