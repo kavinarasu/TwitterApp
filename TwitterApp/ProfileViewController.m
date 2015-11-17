@@ -16,7 +16,9 @@
 @property (weak, nonatomic) IBOutlet UIView *tweetsView;
 @property (weak, nonatomic) IBOutlet UIView *followingView;
 @property (weak, nonatomic) IBOutlet UIView *followersView;
-
+@property (weak, nonatomic) IBOutlet UILabel *tweetsCount;
+@property (weak, nonatomic) IBOutlet UILabel *followingCount;
+@property (weak, nonatomic) IBOutlet UILabel *followersCount;
 
 @end
 
@@ -33,6 +35,9 @@
         NSURL *url = [NSURL URLWithString:urlString];
         [self.bannerImageView setImageWithURL:url];
     }];
+    self.tweetsCount.text = [user.tweetsCount stringValue];
+    self.followingCount.text = [user.followingCount stringValue];
+    self.followersCount.text = [user.followersCount stringValue];
     // Do any additional setup after loading the view from its nib.
 }
 

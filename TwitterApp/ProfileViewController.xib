@@ -7,8 +7,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController">
             <connections>
                 <outlet property="bannerImageView" destination="fno-vz-vCO" id="Qme-bf-zdU"/>
+                <outlet property="followersCount" destination="tTn-79-PJJ" id="ZPZ-mB-h6n"/>
                 <outlet property="followersView" destination="pCX-gv-Q9P" id="UF1-Xe-hhY"/>
+                <outlet property="followingCount" destination="5mb-xB-SWv" id="8sc-rQ-XXl"/>
                 <outlet property="followingView" destination="FQ7-6d-LZ5" id="ReL-jB-MjK"/>
+                <outlet property="tweetsCount" destination="9fE-Jo-nPM" id="wyV-io-81r"/>
                 <outlet property="tweetsView" destination="8zg-Jo-AxT" id="Q8N-YA-ywi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
