@@ -14,14 +14,43 @@
 #import "TweetDetailViewController.h"
 #import "NewTweetViewController.h"
 #import "JTProgressHUD.h"
+#import "ProfileViewController.h"
 
 @interface TweetsViewController () <UITableViewDataSource, UITableViewDelegate, NewTweetViewControllerDelegate, TweetTableViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tweetsTableView;
 @property (nonatomic, strong) NSMutableArray *tweets;
+@property (nonatomic) NSInteger timeline;
 
 @end
 
 @implementation TweetsViewController
+
+- (TweetsViewController *) initWithHome {
+    self = [super init];
+    if(self) {
+        NSLog(@"Set to home");
+        self.timeline = 0;
+    }
+    return self;
+}
+
+- (TweetsViewController *) initWithMentions {
+    self = [super init];
+    if(self) {
+        NSLog(@"Set to home");
+        self.timeline = 1;
+    }
+    return self;
+}
+
+- (id) init {
+    self = [super init];
+    if(self) {
+        NSLog(@"Set to home");
+        self.timeline = 0;
+    }
+    return self;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.tweets.count;
@@ -71,10 +100,6 @@
 
 }
 
-- (void) onLogOut {
-    [User logout];
-}
-
 - (void) onCompose {
     NewTweetViewController *viewController = [[NewTweetViewController alloc] init];
     viewController.delegate = self;
@@ -91,9 +116,7 @@
     self.tweetsTableView.rowHeight = UITableViewAutomaticDimension;
     self.tweetsTableView.estimatedRowHeight = 120;
     self.title = @"Tweets";
-    UIBarButtonItem *leftBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Log out" style:UIBarButtonItemStylePlain target:self action:@selector(onLogOut)];
     UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Compose" style:UIBarButtonItemStylePlain target:self action:@selector(onCompose)];
-    self.navigationItem.leftBarButtonItem = leftBarItem;
     self.navigationItem.rightBarButtonItem = rightBarItem;
     [self fetchTweets];
     UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
@@ -109,6 +132,7 @@
 
 - (void) fetchTweets {
     [JTProgressHUD show];
+    if(self.timeline == 0) {
     [[TwitterClient sharedInstance] homeTimeLineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
         self.tweets = tweets;
         for(Tweet *tweet in tweets) {
@@ -117,11 +141,27 @@
         [self.tweetsTableView reloadData];
         [JTProgressHUD hide];
     }];
+    } else {
+        [[TwitterClient sharedInstance] mentionsTimeLineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
+            self.tweets = tweets;
+            for(Tweet *tweet in tweets) {
+                NSLog(@"%@", tweet.text);
+            }
+            [self.tweetsTableView reloadData];
+            [JTProgressHUD hide];
+        }];
+    }
+    NSLog(@"Timeline is %ld", self.timeline);
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) tweetTableViewCell:(TweetTableViewCell *)tweetTableViewCell profileImageDidGetTappedFor:(Tweet *)tweet {
+    ProfileViewController *profileVC = [[ProfileViewController alloc] initWithUser:tweet.author];
+    [self.navigationController pushViewController:profileVC animated:YES];
 }
 
 /*

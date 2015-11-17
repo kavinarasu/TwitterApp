@@ -82,6 +82,23 @@ NSString *const kTwitterBaseUrl = @"https://api.twitter.com";
     }];
 }
 
+- (void) mentionsTimeLineWithParams:(NSDictionary *)params completion:(void (^)(NSArray *, NSError *))completion {
+    [self GET:@"1.1/statuses/mentions_timeline.json" parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        //        NSLog(@"%@", responseObject);
+        NSArray *tweets = [Tweet tweetsFromArray:responseObject];
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+        [dict setValue:responseObject forKey:@"response"];
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict
+                                                           options:NSJSONWritingPrettyPrinted
+                                                             error:nil];
+        NSString *str = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        NSLog(@"%@", str);
+        completion(tweets, nil);
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        completion(nil, error);
+    }];
+}
+
 - (void) tweetStatus:(NSDictionary *)params completion:(void (^)(Tweet *, NSError *))completion {
     [self POST:@"1.1/statuses/update.json" parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
@@ -127,6 +144,19 @@ NSString *const kTwitterBaseUrl = @"https://api.twitter.com";
     [self POST:url parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         Tweet *tweet = [[Tweet alloc] initWithDictionary:responseObject];
         completion(tweet, nil);
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        completion(nil, error);
+    }];
+}
+
+- (void) fetchUser:(NSString *)screenName completion:(void (^)(User *, NSError *))completion {
+    NSString *url = [NSString stringWithFormat:@"1.1/users/show.json"];
+    NSDictionary *params = [[NSMutableDictionary alloc] init];
+    [params setValue:screenName forKey:@"screen_name"];
+    [self GET:url parameters:params success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSLog(@"response is %@", responseObject);
+        User *user = [[User alloc] initWithDictionary:responseObject];
+        completion(user, nil);
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         completion(nil, error);
     }];

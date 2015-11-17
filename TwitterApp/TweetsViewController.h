@@ -10,4 +10,8 @@
 
 @interface TweetsViewController : UIViewController
 
+- (TweetsViewController *) initWithHome;
+
+- (TweetsViewController *) initWithMentions;
+
 @end

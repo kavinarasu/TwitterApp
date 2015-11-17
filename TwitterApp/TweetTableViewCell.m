@@ -10,6 +10,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "TwitterClient.h"
 #import "NewTweetViewController.h"
+#import "ProfileViewController.h"
 
 @interface TweetTableViewCell ()
 
@@ -77,6 +78,8 @@
     self.tweetUserHandle.text = [NSString stringWithFormat:@"\@%@", self.tweet.author.screenName];
     NSURL *url = [NSURL URLWithString:self.tweet.author.profileImageUrl];
     [self.profileImage setImageWithURL:url];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onImageTapped)];
+    [self.profileImage addGestureRecognizer:tap];
     self.tweetText.preferredMaxLayoutWidth = 280;
     if(self.tweet.favorited) {
         [self.favoriteActionButton setImage: [UIImage imageNamed:@"like-action-on.png"] forState:UIControlStateNormal];
@@ -111,5 +114,11 @@
         self.retweetImage.alpha = 0;
     }
 }
+
+- (void) onImageTapped {
+    [self.delegate tweetTableViewCell:self profileImageDidGetTappedFor:self.tweet];
+}
+
+
 
 @end

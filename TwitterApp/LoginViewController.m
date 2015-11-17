@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "TwitterClient.h"
 #import "TweetsViewController.h"
+#import "MenuViewController.h"
 
 @interface LoginViewController ()
 
@@ -21,7 +22,16 @@
         if(user != nil) {
             NSLog(@"Welcome to %@", user.name);
             UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:[[TweetsViewController alloc] init]];
-            [self presentViewController:navigation animated:YES completion:nil];
+//            [self presentViewController:navigation animated:YES completion:nil];
+            MenuViewController *menuViewController = [[MenuViewController alloc] init];
+            UINavigationController *menuNav = [[UINavigationController alloc] initWithRootViewController:menuViewController];
+            HamburgerViewController *hamburgerViewController = [[HamburgerViewController alloc] init];
+            TweetsViewController *tweetsViewController = [[TweetsViewController alloc] initWithHome];
+            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:tweetsViewController];
+            hamburgerViewController.menuViewController = menuNav;
+            hamburgerViewController.contentViewController = navController;
+            menuViewController.hamburgerViewController = hamburgerViewController;
+            [self presentViewController:hamburgerViewController animated:YES completion:nil];
         } else{
             NSLog(@"Error");
         }
