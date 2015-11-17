@@ -13,6 +13,10 @@
 
 @interface ProfileViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *bannerImageView;
+@property (weak, nonatomic) IBOutlet UIView *tweetsView;
+@property (weak, nonatomic) IBOutlet UIView *followingView;
+@property (weak, nonatomic) IBOutlet UIView *followersView;
+
 
 @end
 
@@ -20,6 +24,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tweetsView.layer.borderWidth = 0.5;
+    self.followingView.layer.borderWidth = 0.5;
+    self.followersView.layer.borderWidth = 0.5;
     User *user = [User currentUser];
     [[TwitterClient sharedInstance] fetchUser:user.screenName completion:^(User * user, NSError * error) {
         NSString *urlString = [NSString stringWithFormat:@"%@/mobile", user.bannerImageUrl];
