@@ -26,7 +26,7 @@
     self.menuItems = @[@"Home",@"Mentions",@"My Profile"];
     UIViewController *viewController1 = [[TweetsViewController alloc] initWithHome];
     UIViewController *viewController2 = [[TweetsViewController alloc] initWithMentions];
-    UIViewController *viewController3 = [[ProfileViewController alloc] init];
+    UIViewController *viewController3 = [[ProfileViewController alloc] initWithUser:[User currentUser]];
     self.viewControllers = @[viewController1, viewController2, viewController3];
     [self.menuTableView registerNib:[UINib nibWithNibName:@"MenuTableViewCell" bundle:nil] forCellReuseIdentifier:@"menuCell"];
     self.menuTableView.rowHeight = UITableViewAutomaticDimension;

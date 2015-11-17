@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *screenNameLabel;
+@property (strong, nonatomic) User *currentUser;
 
 @end
 
@@ -32,7 +33,19 @@
     self.tweetsView.layer.borderWidth = 0.5;
     self.followingView.layer.borderWidth = 0.5;
     self.followersView.layer.borderWidth = 0.5;
-    User *user = [User currentUser];
+    [self loadWithUser:self.currentUser];
+    // Do any additional setup after loading the view from its nib.
+}
+
+- (ProfileViewController *) initWithUser:(User *)user {
+    self = [super init];
+    if(self) {
+        self.currentUser = user;
+    }
+    return self;
+}
+
+- (void) loadWithUser:(User *) user {
     [[TwitterClient sharedInstance] fetchUser:user.screenName completion:^(User * user, NSError * error) {
         NSString *urlString = [NSString stringWithFormat:@"%@/mobile", user.bannerImageUrl];
         NSURL *url = [NSURL URLWithString:urlString];
@@ -45,9 +58,7 @@
         [self.profileImageView setImageWithURL:profileUrlBig];
         self.userNameLabel.text = user.name;
         self.screenNameLabel.text = [NSString stringWithFormat:@"\@%@", user.screenName];
-        
     }];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {
