@@ -14,6 +14,7 @@
 #import "TweetDetailViewController.h"
 #import "NewTweetViewController.h"
 #import "JTProgressHUD.h"
+#import "ProfileViewController.h"
 
 @interface TweetsViewController () <UITableViewDataSource, UITableViewDelegate, NewTweetViewControllerDelegate, TweetTableViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tweetsTableView;
@@ -162,6 +163,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) tweetTableViewCell:(TweetTableViewCell *)tweetTableViewCell profileImageDidGetTappedFor:(Tweet *)tweet {
+    ProfileViewController *profileVC = [[ProfileViewController alloc] initWithUser:tweet.author];
+    [self.navigationController pushViewController:profileVC animated:YES];
 }
 
 /*
