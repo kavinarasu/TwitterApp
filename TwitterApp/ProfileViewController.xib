@@ -21,12 +21,38 @@
                         <constraint firstAttribute="height" constant="120" id="nyh-Ox-BYN"/>
                     </constraints>
                 </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pCX-gv-Q9P" userLabel="Right View">
+                    <rect key="frame" x="213.5" y="180" width="106.5" height="60"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FQ7-6d-LZ5" userLabel="Middle View">
+                    <rect key="frame" x="106.5" y="180" width="107" height="60"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8zg-Jo-AxT" userLabel="Left View">
+                    <rect key="frame" x="0.0" y="180" width="106.5" height="60"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="DKF-3O-leh"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="fno-vz-vCO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="3Qn-J8-k6f"/>
+                <constraint firstItem="8zg-Jo-AxT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DSx-4I-Ubp"/>
+                <constraint firstAttribute="trailing" secondItem="pCX-gv-Q9P" secondAttribute="trailing" id="G8G-CN-o1a"/>
                 <constraint firstItem="fno-vz-vCO" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="I6N-10-hu9"/>
+                <constraint firstItem="8zg-Jo-AxT" firstAttribute="top" secondItem="fno-vz-vCO" secondAttribute="bottom" id="ImV-wH-IDh"/>
+                <constraint firstItem="pCX-gv-Q9P" firstAttribute="height" secondItem="8zg-Jo-AxT" secondAttribute="height" id="Kn5-G5-F4K"/>
+                <constraint firstItem="FQ7-6d-LZ5" firstAttribute="height" secondItem="8zg-Jo-AxT" secondAttribute="height" id="Qxl-qY-97Z"/>
+                <constraint firstItem="pCX-gv-Q9P" firstAttribute="width" secondItem="8zg-Jo-AxT" secondAttribute="width" id="Rli-X6-YV9"/>
+                <constraint firstItem="FQ7-6d-LZ5" firstAttribute="leading" secondItem="8zg-Jo-AxT" secondAttribute="trailing" id="az1-oB-lgo"/>
+                <constraint firstItem="FQ7-6d-LZ5" firstAttribute="width" secondItem="8zg-Jo-AxT" secondAttribute="width" id="cFU-Qe-94f"/>
                 <constraint firstItem="fno-vz-vCO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gdD-ZM-ap3"/>
+                <constraint firstItem="pCX-gv-Q9P" firstAttribute="top" secondItem="fno-vz-vCO" secondAttribute="bottom" id="pHK-SX-son"/>
+                <constraint firstItem="pCX-gv-Q9P" firstAttribute="leading" secondItem="FQ7-6d-LZ5" secondAttribute="trailing" id="qEc-oH-4Nr"/>
+                <constraint firstItem="FQ7-6d-LZ5" firstAttribute="top" secondItem="fno-vz-vCO" secondAttribute="bottom" id="rpw-pS-P0A"/>
             </constraints>
             <point key="canvasLocation" x="320" y="305"/>
         </view>
