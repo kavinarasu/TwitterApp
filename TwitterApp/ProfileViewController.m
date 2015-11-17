@@ -19,6 +19,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *tweetsCount;
 @property (weak, nonatomic) IBOutlet UILabel *followingCount;
 @property (weak, nonatomic) IBOutlet UILabel *followersCount;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *screenNameLabel;
 
 @end
 
@@ -34,10 +37,16 @@
         NSString *urlString = [NSString stringWithFormat:@"%@/mobile", user.bannerImageUrl];
         NSURL *url = [NSURL URLWithString:urlString];
         [self.bannerImageView setImageWithURL:url];
+        self.tweetsCount.text = [user.tweetsCount stringValue];
+        self.followingCount.text = [user.followingCount stringValue];
+        self.followersCount.text = [user.followersCount stringValue];
+        NSString *profileUrlString = [user.profileImageUrl stringByReplacingOccurrencesOfString:@"_normal" withString:@"_bigger"];
+        NSURL *profileUrlBig = [NSURL URLWithString:profileUrlString];
+        [self.profileImageView setImageWithURL:profileUrlBig];
+        self.userNameLabel.text = user.name;
+        self.screenNameLabel.text = [NSString stringWithFormat:@"\@%@", user.screenName];
+        
     }];
-    self.tweetsCount.text = [user.tweetsCount stringValue];
-    self.followingCount.text = [user.followingCount stringValue];
-    self.followersCount.text = [user.followersCount stringValue];
     // Do any additional setup after loading the view from its nib.
 }
 
