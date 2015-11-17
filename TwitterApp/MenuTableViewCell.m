@@ -11,7 +11,7 @@
 @interface MenuTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet UILabel *menuLabel;
-
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 
 @end
 
@@ -19,6 +19,11 @@
 
 - (void)awakeFromNib {
     // Initialization code
+}
+
+- (void) setIconImage:(UIImage *)iconImage {
+    _iconImage = iconImage;
+    [self.iconImageView setImage:_iconImage];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

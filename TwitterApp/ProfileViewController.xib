@@ -12,7 +12,7 @@
                 <outlet property="followingCount" destination="5mb-xB-SWv" id="8sc-rQ-XXl"/>
                 <outlet property="followingView" destination="FQ7-6d-LZ5" id="ReL-jB-MjK"/>
                 <outlet property="profileImageView" destination="aCj-t4-3az" id="iLS-A9-ZGd"/>
-                <outlet property="screenNameLabel" destination="HBJ-np-QMu" id="5f4-90-bm0"/>
+                <outlet property="screenNameLabel" destination="HBJ-np-QMu" id="7hB-vC-dcB"/>
                 <outlet property="tweetsCount" destination="9fE-Jo-nPM" id="wyV-io-81r"/>
                 <outlet property="tweetsView" destination="8zg-Jo-AxT" id="Q8N-YA-ywi"/>
                 <outlet property="userNameLabel" destination="kci-rC-YSw" id="G0a-Mq-0UO"/>

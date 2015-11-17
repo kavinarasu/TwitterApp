@@ -11,5 +11,5 @@
 @interface MenuTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) NSString *label;
-
+@property (nonatomic, strong) UIImage *iconImage;
 @end
