@@ -29,6 +29,8 @@
     UIViewController *viewController3 = [[ProfileViewController alloc] init];
     self.viewControllers = @[viewController1, viewController2, viewController3];
     [self.menuTableView registerNib:[UINib nibWithNibName:@"MenuTableViewCell" bundle:nil] forCellReuseIdentifier:@"menuCell"];
+    self.menuTableView.rowHeight = UITableViewAutomaticDimension;
+    self.menuTableView.estimatedRowHeight = 60;
     UIImage *image1 = [UIImage imageNamed:@"ic_home"];
     UIImage *image2 = [UIImage imageNamed:@"ic_person"];
     UIImage *image3 = [UIImage imageNamed:@"ic_contact_mail"];
